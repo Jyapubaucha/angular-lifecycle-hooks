@@ -1,7 +1,9 @@
 <div class="container">
   <input type="text" #inputEl (focus)="0" name="" id="">
   <button (click)="onBtnClicked(inputEl)">Submit</button>
-  <demo [message]="inputval">
+  <demo [message]="inputval" *ngIf="!toDestroy">
     <p #temp>User has entered following text : {{ inputval }}</p>
   </demo>
+  <br><br>
+  <button (click)="DestroyComponent()">Show / Hide</button>
 </div>

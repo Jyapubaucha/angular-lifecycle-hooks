@@ -9,16 +9,21 @@ export class AppComponent {
   title = 'angular-lifecycle-hooks';
 
   inputval: string = '';
+  toDestroy: boolean = false; 
 
   constructor(){
     console.log('AppComponent constructor called.');
   }
 
-  ngAfterViewInit() {
-    console.log('ngAfterViewInit from AppComponent ');
-  }
-  ngAfterViewChecked() {
-    console.log('ngAfterViewChecked from AppComponent ');
+  // ngAfterViewInit() {
+  //   console.log('ngAfterViewInit from AppComponent ');
+  // }
+  // ngAfterViewChecked() {
+  //   console.log('ngAfterViewChecked from AppComponent ');
+  // }
+
+  DestroyComponent(){
+    this.toDestroy = !this.toDestroy;
   }
 
 

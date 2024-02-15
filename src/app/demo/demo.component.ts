@@ -3,7 +3,8 @@ import { Component, Input, OnChanges,
           ViewChild,DoCheck, AfterContentInit, ContentChild, 
           AfterContentChecked,
           AfterViewInit,
-          AfterViewChecked} 
+          AfterViewChecked,
+          OnDestroy} 
 from '@angular/core';
 
 @Component({
@@ -14,7 +15,7 @@ from '@angular/core';
 export class DemoComponent implements OnChanges, OnInit, 
                                       DoCheck,AfterContentInit, 
                                       AfterContentChecked,AfterViewInit,
-                                      AfterViewChecked{
+                                      AfterViewChecked,OnDestroy{
 
   
   title: string = 'Demo Component';
@@ -59,6 +60,8 @@ export class DemoComponent implements OnChanges, OnInit,
   ngAfterViewChecked() {
     console.log('ngAfterViewChecked hook called');
     // console.log("In a ngAfterViewChecked", this.tempPara?.nativeElement.textContent);
-
+  }
+  ngOnDestroy() {
+    console.log('ngOnDestroy hook called');
   }
 }
