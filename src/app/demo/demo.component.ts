@@ -1,11 +1,17 @@
-import { Component, Input, OnChanges, SimpleChanges,OnInit, ElementRef, ViewChild,DoCheck, AfterContentInit, ContentChild} from '@angular/core';
+import { Component, Input, OnChanges, 
+          SimpleChanges,OnInit, ElementRef, 
+          ViewChild,DoCheck, AfterContentInit, ContentChild, 
+          AfterContentChecked} 
+from '@angular/core';
 
 @Component({
   selector: 'demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnChanges, OnInit, DoCheck,AfterContentInit{
+export class DemoComponent implements OnChanges, OnInit, 
+                                      DoCheck,AfterContentInit, 
+                                      AfterContentChecked{
   
   title: string = 'Demo Component';
   @Input() message?: string;
@@ -13,29 +19,33 @@ export class DemoComponent implements OnChanges, OnInit, DoCheck,AfterContentIni
   @ContentChild('temp') paraContent?: ElementRef;
  
   constructor(){
-    console.log('DemoComponent constructor called');
+    // console.log('DemoComponent constructor called');
     // console.log(this.title);
     // console.log(this.message);
   };
 
   ngOnChanges(changes: SimpleChanges){
-    console.log('On changes hook called'); 
+    // console.log('On changes hook called'); 
     // console.log(changes);
 
   }
   ngOnInit() {
-    console.log('ngOnInit hook called'); 
+    // console.log('ngOnInit hook called'); 
     // console.log(this.tempPara?.nativeElement.innerHTML);
 
   }
   ngDoCheck() {
     console.log('ngDoCheck hook called'); 
-    console.log("In a ngDoCheck", this.paraContent);
+    // console.log("In a ngDoCheck", this.paraContent);
 
   }
   ngAfterContentInit() {
     console.log('ngAfterContentInit hook called');
-    console.log("In a ngAfterContentInit", this.paraContent?.nativeElement);
+    // console.log("In a ngAfterContentInit", this.paraContent?.nativeElement);
 
+  }
+  ngAfterContentChecked() {
+    console.log('ngAfterContentChecked hook called');
+    console.log("In a ngAfterContentChecked", this.paraContent?.nativeElement);
   }
 }
