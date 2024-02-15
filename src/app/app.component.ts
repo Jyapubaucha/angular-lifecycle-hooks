@@ -17,6 +17,10 @@ export class AppComponent {
   ngAfterViewInit() {
     console.log('ngAfterViewInit from AppComponent ');
   }
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked from AppComponent ');
+  }
+
 
   onBtnClicked(inputEl: HTMLInputElement){
     this.inputval = inputEl.value; 
