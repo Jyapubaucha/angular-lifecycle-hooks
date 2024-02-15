@@ -14,6 +14,10 @@ export class AppComponent {
     console.log('AppComponent constructor called.');
   }
 
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit from AppComponent ');
+  }
+
   onBtnClicked(inputEl: HTMLInputElement){
     this.inputval = inputEl.value; 
   }
